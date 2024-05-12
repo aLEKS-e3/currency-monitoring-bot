@@ -5,7 +5,7 @@ import pandas as pd
 
 
 def manage_db(conn, cur, date, rate) -> None:
-    # cur.execute("CREATE TABLE rates(datetime, exchange_rate)")
+    cur.execute("CREATE TABLE IF NOT EXISTS rates(datetime, exchange_rate)")
     cur.execute("INSERT INTO rates VALUES(?, ?);", (date, rate))
 
     conn.commit()
