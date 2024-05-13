@@ -1,4 +1,4 @@
-# Telegram Bot For Monitoring USD to UAH Rate
+# Telegram Bot for Monitoring USD to UAH Rate
 
 
 This project aims to regularly fetch the USD to UAH exchange rate from the Google Finance page, checking every hour. 
