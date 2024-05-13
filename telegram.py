@@ -8,6 +8,8 @@ from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, FSInputFile
 from dotenv import load_dotenv
 
+from database import FILE
+
 
 load_dotenv()
 
@@ -33,7 +35,7 @@ async def command_start_handler(message: Message) -> None:
 
 @dp.message(Command(commands=["get_exchange_rate"]))
 async def get_exchange_rate_command_handler(message: Message) -> None:
-    file = FSInputFile(f"{datetime.now().date()}-usd-uah-rate.xlsx")
+    file = FSInputFile(FILE.format(date = datetime.now().date()))
     await message.answer("Here you go!")
     await bot.send_document(message.chat.id, file)
 
